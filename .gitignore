@@ -1,0 +1,10 @@
+*.class
+classes/
+.classpath
+.idea/
+*.iml
+*.log
+out/
+.project
+.settings
+target/
