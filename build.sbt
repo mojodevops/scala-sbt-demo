@@ -3,6 +3,7 @@ name := "scala-sbt-demo"
 version := "1.0"
 
 scalaVersion := "2.12.10"
+javacOptions ++= Seq("-source", "11", "-target", "11", "-Xlint")
 
 //libraryDependencies += "org.apache.felix" % "org.apache.felix.framework" % "1.8.0" withSources()
 libraryDependencies += "org.slf4s" %% "slf4s-api" % "1.7.25"
