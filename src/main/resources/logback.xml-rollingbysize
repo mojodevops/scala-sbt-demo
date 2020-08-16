@@ -40,7 +40,7 @@
         <appender-ref ref="CONSOLE" />
     </logger> -->
     <!--test -->
-    <!-- <logger name="com.feidao.dingzk" level="DEBUG">
+    <!-- <logger name="cc.xstack" level="DEBUG">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="FILE" />
     </logger> -->
