@@ -1,5 +1,8 @@
+package cc.xstack
+
+import org.slf4j.{Logger, LoggerFactory}
+
 import java.io.File
-import org.slf4s.{Logger, LoggerFactory}
 import scala.util.Try
 
 class GitRevision
@@ -14,7 +17,7 @@ object GitRevision {
       val s = sys.process.Process("git rev-parse HEAD") lineStream_! sys.process.ProcessLogger(_ => {}, _ => {})
       s.head
     }.getOrElse("unknown").trim
-    LOGGER.info("gitRevision: " + gitRevision)
+    LOGGER.info("在git工作目录子目录获取 git revision: " + gitRevision)
 
     // Check the current Git revision
     val base: File = new File("./.git") // Using the working directory as base for readability
@@ -26,23 +29,12 @@ object GitRevision {
         "unknown"
       }
     }.getOrElse("unknown").trim
-    LOGGER.info("gitRevision1: " + gitRevision1)
-    LOGGER.info("不使用Try语句获取gitRevision可能会异常（不是git仓库）")
+    LOGGER.info("基于 .git 目录获取 git revision: " + gitRevision1)
+
+    LOGGER.info("不使用Try语句获取gitRevision可能会异常, 例如不是git仓库")
     val gitRevision2: String = Try {
       sys.process.Process("git rev-parse HEAD").!!
     }.getOrElse("unknown").trim
-    LOGGER.info("gitRevision2: " + gitRevision2)
-
-    //  def it(): Unit = {
-    //    val proc = Process("ls")
-    //    val (out, err) = (new StringBuffer(), new StringBuffer())
-    //    val logger = ProcessLogger(
-    //      out.append,
-    //      err.append
-    //    )
-    //    proc.!!(logger)
-    //    println(out.toString)
-    //    println(err.toString)
-    //  }
+    LOGGER.info("不使用Try语句获取gitRevision可能会异常: " + gitRevision2)
   }
 }

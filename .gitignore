@@ -8,3 +8,5 @@ out/
 .project
 .settings
 target/
+.bsp/
+project/plugins/project/

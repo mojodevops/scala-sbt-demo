@@ -2,23 +2,23 @@
 <configuration>
     <appender class="ch.qos.logback.core.ConsoleAppender" name="CONSOLE">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>[soa] %date [%thread] %-5level %logger{80} : %msg%n</pattern>
+            <pattern>[App] %date [%thread] %-5level %logger{80} : %msg%n</pattern>
         </encoder>
     </appender>
     <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="APPLOGFILE">
-        <file>/data/logs/soa.log</file>
+        <file>/tmp/logs/app.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>/data/logs/soa-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>/tmp/logs/app-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>1MB</maxFileSize>
             <maxHistory>13</maxHistory>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>[soa] %date [%thread] %-5level %logger{80} : %msg%n</pattern>
+            <pattern>[App] %date [%thread] %-5level %logger{80} : %msg%n</pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>
     <root level="INFO">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="APPLOGFILE" />
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="APPLOGFILE"/>
     </root>
 </configuration>
