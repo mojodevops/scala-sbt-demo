@@ -27,6 +27,7 @@ val systemConfig = Option(System.getProperty("myapplication.config")) match {
   case Some(cfile) => ConfigFactory.parseFile(new File(cfile)).withFallback(baseConfig)
   case None => baseConfig
 }
+// TODO exclude file from jar
 
 //发布到本地maven仓库时允许覆盖jar
 publishConfiguration := publishConfiguration.value.withOverwrite(true)
